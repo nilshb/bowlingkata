@@ -17,7 +17,7 @@ public class GameTest {
 
     @Test
     void tenPairsOf9andMiss() {
-        for (int i=0; i < GAME_FRAMES; i++) {
+        for (int i = 0; i < GAME_FRAMES; i++) {
             game.roll(9);
             game.roll(0);
         }
@@ -27,7 +27,7 @@ public class GameTest {
 
     @Test
     void perfectGame() {
-        for (int i=0; i < GAME_FRAMES; i++) {
+        for (int i = 0; i < GAME_FRAMES; i++) {
             game.roll(10);
         }
         // bonus
@@ -38,8 +38,8 @@ public class GameTest {
     }
 
     @Test
-    void TenPairsOf5AndSpare() {
-        for (int i=0; i < GAME_FRAMES; i++) {
+    void tenPairsOf5AndSpare() {
+        for (int i = 0; i < GAME_FRAMES; i++) {
             game.roll(5);
             game.roll(5);
         }
@@ -49,7 +49,13 @@ public class GameTest {
         assertEquals(150, game.score());
     }
 
+    @Test
+    void partialGame() {
+        game.roll(5);
+        game.roll(5);
+        game.roll(3);
 
-
+        assertEquals(16, game.score());
+    }
 
 }
